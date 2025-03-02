@@ -1,2 +1,9 @@
 /.idea
 /venv
+/BindsNET
+src/data
+src/results/
+
+NCA-main/__pycache__/
+
+NCA-main/logs/
