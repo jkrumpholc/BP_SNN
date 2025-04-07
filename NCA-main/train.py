@@ -6,15 +6,16 @@ from PIL import Image
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
-from model import CAModel
+# from model import CAModel
+from Network import CAModel
 
 # Set the parameters directly in the script
 image_path = './Carlos.png'
 batch_size = 2
 device_type = 'cuda'
-eval_frequency = 500
-eval_iterations = 300
-n_batches = 5000
+eval_frequency = 150
+eval_iterations = 100
+n_batches = 20
 n_channels = 16
 log_directory = 'logs'
 padding_size = 16
@@ -56,7 +57,8 @@ def main():
     target_img = target_img.repeat(batch_size, 1, 1, 1)
 
     # Model and optimizer
-    model = CAModel(n_channels=n_channels, device=device)
+    model = CAModel(n_channels=n_channels, device=device, n_inpt=n_channels, input_shape=[1, 28, 28],
+                    kernel_size=(2, 2), n_filters=n_channels, stride=2)
     optimizer = torch.optim.Adam(model.parameters(), lr=2e-3)
 
     # Pool initialization

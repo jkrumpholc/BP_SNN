@@ -1,0 +1,1 @@
+7.4.2025 - worked on Convolutional Spiking NN - without much progress
