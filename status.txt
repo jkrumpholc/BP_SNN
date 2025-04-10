@@ -1,1 +1,2 @@
 7.4.2025 - worked on Convolutional Spiking NN - without much progress
+8.4.2025 & 9.4.2025 - worked on CSNN using ChatGPT - moved a little (started training, but testing showed 0% accuracy)
