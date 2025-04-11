@@ -2,6 +2,7 @@ import torch
 import matplotlib.pyplot as plt
 
 from bindsnet.network import Network
+from bindsnet.network.monitors import Monitor
 from bindsnet.network.nodes import Input, DiehlAndCookNodes
 from bindsnet.network.topology import Conv2dConnection
 from bindsnet.learning import PostPre
@@ -10,18 +11,18 @@ from bindsnet.encoding import PoissonEncoder
 from bindsnet.pipeline import EnvironmentPipeline
 from bindsnet.analysis.plotting import plot_spikes
 
-from bindsnet.evaluation import assign_labels, all_activity
+from bindsnet.evaluation import assign_labels
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
 # Device config
-device = "cpu"  # torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Hyperparameters
 time = 100
 n_classes = 10
 input_shape = (1, 28, 28)
-conv_filters = 16
+conv_filters = 32
 conv_kernel = 5
 conv_stride = 1
 n_epochs = 1
@@ -32,7 +33,7 @@ network = Network(dt=1.0)
 network.to(device)
 
 # Layers
-input_layer = Input(n=28 * 28, shape=(1, 28, 28), traces=True, device=device)
+input_layer = Input(n=28 * 28, shape=(1, 28, 28), traces=True, device="cuda:0")
 conv_layer = DiehlAndCookNodes(n=conv_filters * 24 * 24, shape=(conv_filters, 24, 24), traces=True)
 
 network.add_layer(input_layer, name='X')
@@ -56,8 +57,8 @@ network.add_connection(conv_conn, source='X', target='Y')
 # Dataset
 transform = transforms.ToTensor()
 dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
+test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
 train_dataset = MNIST(PoissonEncoder(time=time, dt=1), None, "./data/MNIST", train=True, download=True, transform=None)
-test_dataset = MNIST(PoissonEncoder(time=time, dt=1), None, "./data/MNIST", train=False, download=True, transform=None)
 
 # Pipeline
 pipeline = EnvironmentPipeline(
@@ -66,53 +67,92 @@ pipeline = EnvironmentPipeline(
     encoding=PoissonEncoder(time=time, dt=1),
 )
 
-# Training
 
-# Create a dataloader for the training set
+def train():
+    # Training
 
-# DataLoader
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+    # Create a dataloader for the training set
+    time = pipeline.time
+    layer = pipeline.network.layers['Y']
+    D, W, H = pipeline.network.layers['Y'].shape
+    n_neurons = H * W * D
+    spike_record = torch.zeros(samples_per_epoch, time, n_neurons)
+    labels = torch.zeros(samples_per_epoch, dtype=torch.long)
 
-print("Training started...")
-for epoch in range(n_epochs):
-    for i, (data, label) in enumerate(train_loader):
-        if i >= samples_per_epoch:
-            break
+    # DataLoader
+    train_loader = DataLoader(dataset, batch_size=1, shuffle=True)
 
-        # Move everything to the right device!
-        data = data.to(device)
-        label = label.to(device)
-        index = torch.tensor([i]).to(device)
-        reward = torch.tensor(0)  # Unused for STDP
+    print("Training started...")
+    for epoch in range(n_epochs):
+        for i, (data, label) in enumerate(train_loader):
+            if i >= samples_per_epoch:
+                break
 
-        # Let pipeline handle encoding
-        pipeline.step(batch=(data, label, index, reward))
+            # Move everything to the right device!
+            data = data.squeeze(0)
+            data = data.to(device)
+            label = label.to(device)
+            index = torch.tensor([i]).to(device)
+            reward = torch.tensor(0)  # Unused for STDP
 
-        if i % 50 == 0:
-            print(f"[Epoch {epoch}] Sample {i}/{samples_per_epoch}")
-print("Training complete.")
+            # Let pipeline handle encoding
+            pipeline.step(batch=(data, label, index, reward))
+            spikes = pipeline.network.layers['Y'].s.detach().cpu().view(time, -1)
+            spike_record[i] = spikes
+            labels[i] = label
 
-# Assign neuron labels
-print("Assigning labels to neurons...")
-assignments, proportions, rates = assign_labels(
-    data_loader=pipeline.dataloader,
-    network=network,
-    layer='Y',
-    n_labels=n_classes
-)
+            if i % 50 == 0:
+                print(f"[Epoch {epoch}] Sample {i}/{samples_per_epoch}")
+    print("Training complete.")
+
+    # Assign neuron labels
+    print("Assigning labels to neurons...")
+    assignments, proportions, rates = assign_labels(spike_record, labels, 10)
+    return assignments, proportions, rates
+
+
+def all_activity(spikes, assignments, n_labels):
+    num_neurons = spikes.size(2) * spikes.size(3) * spikes.size(4)  # Get the number of neurons
+    rates = torch.zeros(n_labels).to(spikes.device)  # Store the firing rates for each label
+    spikes = spikes.view(spikes.size(0), -1)
+    # Ensure indices are within bounds
+    for i in range(n_labels):
+        indices = assignments == i  # Assign neurons based on their label
+
+        # Ensure indices are within valid range
+        indices = indices.nonzero().squeeze()
+
+        # Make sure we don't exceed the number of neurons
+        if indices.size(0) > num_neurons:
+            raise ValueError(f"Too many indices for label {i}, exceeds the number of neurons.")
+
+        # Calculate the firing rates for each label
+        rates[i] = torch.sum(spikes[:, indices], 1).float().mean()
+
+    return rates
 
 
 # Evaluation
 def evaluate(dataset, n_samples=100):
+    test_loader = DataLoader(dataset, batch_size=1, shuffle=True)
     correct = 0
     total = 0
 
-    for i, (images, labels) in enumerate(dataset):
+    for i, (images, labels) in enumerate(test_loader):
         if i >= n_samples:
             break
 
-        inputs = {'X': PoissonEncoder(time)(images.view(-1))}
-        network.run(inputs=inputs, time=time)
+        # Move images and labels to the correct device (CUDA)
+        images = images.to(device)
+        labels = labels.to(device)
+
+        # Flatten the image
+        image_tensor = images.to(device)  # Flatten to [784]
+
+        # Encode input using PoissonEncoder
+        inputs = {'X': PoissonEncoder(time)(image_tensor).to(device)}
+        # Run network on GPU
+        network.run(inputs=inputs, time=time, device=device)
 
         output_spikes = network.monitors['Y'].get('s')
         prediction = all_activity(
@@ -121,7 +161,7 @@ def evaluate(dataset, n_samples=100):
             n_labels=n_classes
         )
 
-        if prediction == labels.item():
+        if torch.all(prediction == labels.item()):
             correct += 1
         total += 1
         network.reset_state_variables()
@@ -130,15 +170,14 @@ def evaluate(dataset, n_samples=100):
 
 
 # Add spike monitor
-from bindsnet.network.monitors import Monitor
 
 spike_monitor = Monitor(obj=conv_layer, state_vars=['s'], time=time)
 network.add_monitor(spike_monitor, name='Y')
-
+assignments, proportions, rates = train()
 # Run evaluation
 print("Evaluating on test set...")
 evaluate(test_dataset, n_samples=100)
 
 # Optional: Visualize spikes
-plot_spikes({'Y': spike_monitor.get('s')})
-plt.show()
+# plot_spikes({'Y': spike_monitor.get('s')})
+# plt.show()
