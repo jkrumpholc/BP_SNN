@@ -12,8 +12,6 @@ from bindsnet.network.topology import Connection
 class IncreasingInhibitionNetwork(Network):
     # language=rst
     """
-    Implements the inhibitory layer structure of the spiking neural network architecture
-    from `(Hazan et al. 2018) <https://arxiv.org/abs/1807.09374>`_
     """
 
     def __init__(

@@ -10,10 +10,6 @@ from bindsnet.network.topology import Connection
 class DiehlAndCook2015v2(Network):
     # language=rst
     """
-    Slightly modifies the spiking neural network architecture from `(Diehl & Cook 2015)
-    <https://www.frontiersin.org/articles/10.3389/fncom.2015.00099/full>`_ by removing
-    the inhibitory layer and replacing it with a recurrent inhibitory connection in the
-    output layer (what used to be the excitatory layer).
     """
 
     def __init__(
