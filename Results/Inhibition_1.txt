@@ -1,0 +1,61 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe D:\Skola\BP_SNN\src\Models\Inhibition.py --gpu
+Running on Device =  cuda
+
+Begin training...
+
+Progress: 0 / 1 (0.0000 seconds)
+ 10%|█         | 6000/60000 [01:08<09:41, 92.84it/s]
+All activity accuracy: 10.60 (last), 10.60 (average), 10.60 (best)
+Proportion weighting accuracy: 10.60 (last), 10.60 (average), 10.60 (best)
+
+ 20%|██        | 12000/60000 [02:12<08:27, 94.50it/s]
+All activity accuracy: 14.42 (last), 12.51 (average), 14.42 (best)
+Proportion weighting accuracy: 14.38 (last), 12.49 (average), 14.38 (best)
+
+ 30%|███       | 18000/60000 [03:16<07:24, 94.57it/s]
+All activity accuracy: 12.82 (last), 12.61 (average), 14.42 (best)
+Proportion weighting accuracy: 13.38 (last), 12.79 (average), 14.38 (best)
+
+ 40%|████      | 24000/60000 [04:20<06:32, 91.66it/s]
+All activity accuracy: 13.22 (last), 12.76 (average), 14.42 (best)
+Proportion weighting accuracy: 13.22 (last), 12.90 (average), 14.38 (best)
+
+ 50%|█████     | 30000/60000 [05:25<05:20, 93.61it/s]
+All activity accuracy: 13.00 (last), 12.81 (average), 14.42 (best)
+Proportion weighting accuracy: 13.00 (last), 12.92 (average), 14.38 (best)
+
+ 60%|██████    | 36000/60000 [06:29<04:14, 94.17it/s]
+All activity accuracy: 12.38 (last), 12.74 (average), 14.42 (best)
+Proportion weighting accuracy: 12.38 (last), 12.83 (average), 14.38 (best)
+
+ 70%|███████   | 42000/60000 [07:33<03:10, 94.35it/s]
+All activity accuracy: 12.72 (last), 12.74 (average), 14.42 (best)
+Proportion weighting accuracy: 12.72 (last), 12.81 (average), 14.38 (best)
+
+ 80%|████████  | 48000/60000 [08:37<02:06, 94.97it/s]
+All activity accuracy: 12.08 (last), 12.65 (average), 14.42 (best)
+Proportion weighting accuracy: 12.08 (last), 12.72 (average), 14.38 (best)
+
+ 90%|█████████ | 54000/60000 [09:40<01:03, 94.31it/s]
+All activity accuracy: 11.48 (last), 12.52 (average), 14.42 (best)
+Proportion weighting accuracy: 11.48 (last), 12.58 (average), 14.38 (best)
+
+100%|██████████| 60000/60000 [10:45<00:00, 93.00it/s]
+Test progress:   0%|          | 0/6000 [00:00<?, ?it/s]Progress: 1 / 1 (645.1720 seconds)
+
+Training complete.
+
+
+Begin testing...
+
+Test progress: : 6030it [00:48, 124.84it/s]
+
+All activity accuracy: 0.1183
+Proportion weighting accuracy: 0.1183
+
+Progress: 1 / 1 (48.3031 seconds)
+
+Testing complete.
+
+
+Process finished with exit code 0

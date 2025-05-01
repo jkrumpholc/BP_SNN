@@ -1,0 +1,147 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe D:\Skola\BP_SNN\src\Models\Diehlv2.py --gpu
+Running on Device =  cuda
+
+Begin training...
+
+Progress: 0 / 3 (0.0000 seconds)
+ 10%|▉         | 5952/60000 [01:12<10:52, 82.89it/s]
+All activity accuracy: 9.96 (last), 9.96 (average), 9.96 (best)
+Proportion weighting accuracy: 9.96 (last), 9.96 (average), 9.96 (best)
+
+ 20%|█▉        | 11904/60000 [02:27<10:32, 76.07it/s]
+All activity accuracy: 55.14 (last), 32.55 (average), 55.14 (best)
+Proportion weighting accuracy: 56.38 (last), 33.17 (average), 56.38 (best)
+
+ 30%|██▉       | 17856/60000 [03:42<08:52, 79.12it/s]
+All activity accuracy: 65.68 (last), 43.59 (average), 65.68 (best)
+Proportion weighting accuracy: 67.57 (last), 44.64 (average), 67.57 (best)
+
+ 40%|███▉      | 23808/60000 [04:56<07:38, 78.87it/s]
+All activity accuracy: 77.74 (last), 52.13 (average), 77.74 (best)
+Proportion weighting accuracy: 78.91 (last), 53.21 (average), 78.91 (best)
+
+ 50%|████▉     | 29760/60000 [06:09<05:59, 84.04it/s]
+All activity accuracy: 78.90 (last), 57.48 (average), 78.90 (best)
+Proportion weighting accuracy: 80.33 (last), 58.63 (average), 80.33 (best)
+
+ 60%|█████▉    | 35712/60000 [07:22<05:01, 80.54it/s]
+All activity accuracy: 80.43 (last), 61.31 (average), 80.43 (best)
+Proportion weighting accuracy: 81.91 (last), 62.51 (average), 81.91 (best)
+
+ 69%|██████▉   | 41664/60000 [08:35<03:46, 80.87it/s]
+All activity accuracy: 80.26 (last), 64.01 (average), 80.43 (best)
+Proportion weighting accuracy: 82.07 (last), 65.31 (average), 82.07 (best)
+
+ 79%|███████▉  | 47616/60000 [09:48<02:33, 80.81it/s]
+All activity accuracy: 79.99 (last), 66.01 (average), 80.43 (best)
+Proportion weighting accuracy: 81.52 (last), 67.33 (average), 82.07 (best)
+
+ 89%|████████▉ | 53568/60000 [10:54<01:01, 104.43it/s]
+All activity accuracy: 79.02 (last), 67.46 (average), 80.43 (best)
+Proportion weighting accuracy: 80.59 (last), 68.81 (average), 82.07 (best)
+
+ 99%|█████████▉| 59520/60000 [11:52<00:04, 101.59it/s]
+All activity accuracy: 78.12 (last), 68.52 (average), 80.43 (best)
+Proportion weighting accuracy: 80.06 (last), 69.93 (average), 82.07 (best)
+
+60032it [11:57, 83.63it/s]
+ 10%|▉         | 5952/60000 [00:56<08:37, 104.39it/s]
+All activity accuracy: 78.33 (last), 69.41 (average), 80.43 (best)
+Proportion weighting accuracy: 79.18 (last), 70.77 (average), 82.07 (best)
+
+ 20%|█▉        | 11904/60000 [01:55<07:46, 103.01it/s]
+All activity accuracy: 78.65 (last), 70.18 (average), 80.43 (best)
+Proportion weighting accuracy: 79.62 (last), 71.51 (average), 82.07 (best)
+
+ 30%|██▉       | 17856/60000 [02:51<06:34, 106.75it/s]
+All activity accuracy: 77.69 (last), 70.76 (average), 80.43 (best)
+Proportion weighting accuracy: 79.27 (last), 72.11 (average), 82.07 (best)
+
+ 40%|███▉      | 23808/60000 [03:48<05:39, 106.64it/s]
+All activity accuracy: 76.28 (last), 71.15 (average), 80.43 (best)
+Proportion weighting accuracy: 77.84 (last), 72.52 (average), 82.07 (best)
+
+ 50%|████▉     | 29760/60000 [04:43<04:31, 111.21it/s]
+All activity accuracy: 75.32 (last), 71.43 (average), 80.43 (best)
+Proportion weighting accuracy: 77.35 (last), 72.84 (average), 82.07 (best)
+
+ 60%|█████▉    | 35712/60000 [05:36<03:31, 114.64it/s]
+All activity accuracy: 75.40 (last), 71.68 (average), 80.43 (best)
+Proportion weighting accuracy: 76.65 (last), 73.08 (average), 82.07 (best)
+
+ 69%|██████▉   | 41664/60000 [06:38<03:34, 85.42it/s]
+All activity accuracy: 75.34 (last), 71.90 (average), 80.43 (best)
+Proportion weighting accuracy: 76.14 (last), 73.26 (average), 82.07 (best)
+
+ 79%|███████▉  | 47616/60000 [07:47<02:20, 87.95it/s]
+All activity accuracy: 74.50 (last), 72.04 (average), 80.43 (best)
+Proportion weighting accuracy: 75.34 (last), 73.37 (average), 82.07 (best)
+
+ 89%|████████▉ | 53568/60000 [08:55<01:14, 86.12it/s]
+All activity accuracy: 72.65 (last), 72.07 (average), 80.43 (best)
+Proportion weighting accuracy: 73.94 (last), 73.40 (average), 82.07 (best)
+
+ 99%|█████████▉| 59520/60000 [10:02<00:05, 87.64it/s]
+All activity accuracy: 70.97 (last), 72.02 (average), 80.43 (best)
+Proportion weighting accuracy: 72.16 (last), 73.34 (average), 82.07 (best)
+
+60032it [10:08, 98.70it/s]
+ 10%|▉         | 5952/60000 [01:07<10:25, 86.45it/s]
+All activity accuracy: 71.94 (last), 72.01 (average), 80.43 (best)
+Proportion weighting accuracy: 72.61 (last), 73.31 (average), 82.07 (best)
+
+ 20%|█▉        | 11904/60000 [02:15<09:15, 86.59it/s]
+All activity accuracy: 71.66 (last), 72.00 (average), 80.43 (best)
+Proportion weighting accuracy: 72.16 (last), 73.25 (average), 82.07 (best)
+
+ 30%|██▉       | 17856/60000 [03:22<08:14, 85.27it/s]
+All activity accuracy: 70.56 (last), 71.93 (average), 80.43 (best)
+Proportion weighting accuracy: 71.05 (last), 73.16 (average), 82.07 (best)
+
+ 40%|███▉      | 23808/60000 [04:28<06:39, 90.59it/s]
+All activity accuracy: 70.61 (last), 71.88 (average), 80.43 (best)
+Proportion weighting accuracy: 71.14 (last), 73.07 (average), 82.07 (best)
+
+ 50%|████▉     | 29760/60000 [05:28<04:59, 101.06it/s]
+All activity accuracy: 68.93 (last), 71.76 (average), 80.43 (best)
+Proportion weighting accuracy: 69.29 (last), 72.92 (average), 82.07 (best)
+
+ 60%|█████▉    | 35712/60000 [06:25<03:50, 105.46it/s]
+All activity accuracy: 67.07 (last), 71.58 (average), 80.43 (best)
+Proportion weighting accuracy: 67.37 (last), 72.71 (average), 82.07 (best)
+
+ 69%|██████▉   | 41664/60000 [07:20<02:47, 109.61it/s]
+All activity accuracy: 66.25 (last), 71.38 (average), 80.43 (best)
+Proportion weighting accuracy: 66.55 (last), 72.48 (average), 82.07 (best)
+
+ 79%|███████▉  | 47616/60000 [08:16<02:02, 101.48it/s]
+All activity accuracy: 66.15 (last), 71.20 (average), 80.43 (best)
+Proportion weighting accuracy: 66.57 (last), 72.27 (average), 82.07 (best)
+
+ 89%|████████▉ | 53568/60000 [09:11<01:01, 105.26it/s]
+All activity accuracy: 64.47 (last), 70.96 (average), 80.43 (best)
+Proportion weighting accuracy: 64.78 (last), 72.01 (average), 82.07 (best)
+
+ 99%|█████████▉| 59520/60000 [10:06<00:04, 101.45it/s]
+All activity accuracy: 63.73 (last), 70.72 (average), 80.43 (best)
+Proportion weighting accuracy: 64.13 (last), 71.75 (average), 82.07 (best)
+
+60032it [10:10, 98.25it/s]
+Test progress:   0%|          | 0/30000 [00:00<?, ?it/s]Progress: 3 / 3 (1937.0632 seconds)
+
+Training complete.
+
+
+Begin testing...
+
+Test progress:  33%|███▎      | 10048/30000 [01:18<02:36, 127.72it/s]
+
+All activity accuracy: 0.2210
+Proportion weighting accuracy: 0.2216
+
+Progress: 3 / 3 (78.6747 seconds)
+
+Testing complete.
+
+
+Process finished with exit code 0

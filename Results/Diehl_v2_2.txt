@@ -1,0 +1,61 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe D:\Skola\BP_SNN\src\Models\Diehlv2.py --gpu
+Running on Device =  cuda
+
+Begin training...
+
+Progress: 0 / 1 (0.0000 seconds)
+ 10%|█         | 6000/60000 [01:22<12:07, 74.27it/s]
+All activity accuracy: 10.05 (last), 10.05 (average), 10.05 (best)
+Proportion weighting accuracy: 10.05 (last), 10.05 (average), 10.05 (best)
+
+ 20%|██        | 12000/60000 [02:45<11:16, 70.94it/s]
+All activity accuracy: 61.98 (last), 36.02 (average), 61.98 (best)
+Proportion weighting accuracy: 64.08 (last), 37.07 (average), 64.08 (best)
+
+ 30%|███       | 18000/60000 [04:07<09:42, 72.06it/s]
+All activity accuracy: 82.58 (last), 51.54 (average), 82.58 (best)
+Proportion weighting accuracy: 83.05 (last), 52.39 (average), 83.05 (best)
+
+ 40%|████      | 24000/60000 [05:26<07:37, 78.67it/s]
+All activity accuracy: 84.68 (last), 59.83 (average), 84.68 (best)
+Proportion weighting accuracy: 84.75 (last), 60.48 (average), 84.75 (best)
+
+ 50%|█████     | 30000/60000 [06:45<06:22, 78.43it/s]
+All activity accuracy: 83.85 (last), 64.63 (average), 84.68 (best)
+Proportion weighting accuracy: 84.08 (last), 65.20 (average), 84.75 (best)
+
+ 60%|██████    | 36000/60000 [08:03<05:08, 77.83it/s]
+All activity accuracy: 82.75 (last), 67.65 (average), 84.68 (best)
+Proportion weighting accuracy: 84.02 (last), 68.34 (average), 84.75 (best)
+
+ 70%|███████   | 42000/60000 [09:20<03:51, 77.79it/s]
+All activity accuracy: 82.28 (last), 69.74 (average), 84.68 (best)
+Proportion weighting accuracy: 83.28 (last), 70.47 (average), 84.75 (best)
+
+ 80%|████████  | 48000/60000 [10:37<02:31, 79.46it/s]
+All activity accuracy: 79.87 (last), 71.01 (average), 84.68 (best)
+Proportion weighting accuracy: 81.25 (last), 71.82 (average), 84.75 (best)
+
+ 90%|█████████ | 54000/60000 [11:54<01:15, 79.58it/s]
+All activity accuracy: 80.30 (last), 72.04 (average), 84.68 (best)
+Proportion weighting accuracy: 81.93 (last), 72.94 (average), 84.75 (best)
+
+100%|██████████| 60000/60000 [13:09<00:00, 76.04it/s]
+Progress: 1 / 1 (789.1069 seconds)
+
+Training complete.
+
+
+Begin testing...
+
+Test progress: : 6030it [01:04, 93.18it/s]
+
+All activity accuracy: 0.8138
+Proportion weighting accuracy: 0.8198
+
+Progress: 1 / 1 (64.7107 seconds)
+
+Testing complete.
+
+
+Process finished with exit code 0

@@ -1,0 +1,65 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe C:\Users\Mundik\AppData\Roaming\JetBrains\PyCharm2024.1\scratches\test.py --gpu
+Running on Device =  cuda
+
+Begin training...
+
+Progress: 0 / 1 (0.0000 seconds)
+ 10%|▉         | 5984/60000 [01:03<09:09, 98.36it/s]
+All activity accuracy: 10.70 (last), 10.70 (average), 10.70 (best)
+Proportion weighting accuracy: 10.70 (last), 10.70 (average), 10.70 (best)
+
+ 20%|█▉        | 11968/60000 [02:06<09:13, 86.84it/s]
+All activity accuracy: 51.97 (last), 31.33 (average), 51.97 (best)
+Proportion weighting accuracy: 53.73 (last), 32.21 (average), 53.73 (best)
+
+ 30%|██▉       | 17952/60000 [03:10<07:45, 90.28it/s]
+All activity accuracy: 74.70 (last), 45.79 (average), 74.70 (best)
+Proportion weighting accuracy: 76.92 (last), 47.11 (average), 76.92 (best)
+
+ 40%|███▉      | 23936/60000 [04:13<05:56, 101.14it/s]
+All activity accuracy: 80.78 (last), 54.54 (average), 80.78 (best)
+Proportion weighting accuracy: 81.80 (last), 55.79 (average), 81.80 (best)
+
+ 50%|████▉     | 29920/60000 [05:15<04:48, 104.31it/s]
+All activity accuracy: 79.71 (last), 59.57 (average), 80.78 (best)
+Proportion weighting accuracy: 80.63 (last), 60.76 (average), 81.80 (best)
+
+ 60%|█████▉    | 35904/60000 [06:18<04:41, 85.61it/s]
+All activity accuracy: 79.70 (last), 62.93 (average), 80.78 (best)
+Proportion weighting accuracy: 80.15 (last), 63.99 (average), 81.80 (best)
+
+ 70%|██████▉   | 41888/60000 [07:20<02:56, 102.84it/s]
+All activity accuracy: 77.97 (last), 65.08 (average), 80.78 (best)
+Proportion weighting accuracy: 78.71 (last), 66.09 (average), 81.80 (best)
+
+ 80%|███████▉  | 47872/60000 [08:22<02:19, 87.00it/s]
+All activity accuracy: 76.72 (last), 66.53 (average), 80.78 (best)
+Proportion weighting accuracy: 77.44 (last), 67.51 (average), 81.80 (best)
+
+ 90%|████████▉ | 53856/60000 [09:24<00:59, 102.58it/s]
+All activity accuracy: 76.50 (last), 67.64 (average), 80.78 (best)
+Proportion weighting accuracy: 76.74 (last), 68.53 (average), 81.80 (best)
+
+100%|█████████▉| 59840/60000 [10:24<00:01, 106.84it/s]
+All activity accuracy: 75.47 (last), 68.42 (average), 80.78 (best)
+Proportion weighting accuracy: 76.20 (last), 69.30 (average), 81.80 (best)
+
+100%|██████████| 60000/60000 [10:26<00:00, 95.79it/s]
+Progress: 1 / 1 (626.3470 seconds)
+
+Training complete.
+
+Test progress:   0%|          | 0/5000 [00:00<?, ?it/s]
+Begin testing...
+
+Test progress: : 5024it [00:39, 125.61it/s]
+
+All activity accuracy: 0.77
+Proportion weighting accuracy: 0.78
+
+Progress: 1 / 1 (39.9980 seconds)
+
+Testing complete.
+
+
+Process finished with exit code 0
