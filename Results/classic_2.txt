@@ -1,0 +1,9 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe D:\Skola\BP_SNN\src\Models\classic_conv.py
+Epoch [1/5] - Loss: 73.0735, Accuracy: 95.30%
+Epoch [2/5] - Loss: 20.7168, Accuracy: 98.66%
+Epoch [3/5] - Loss: 14.5995, Accuracy: 99.01%
+Epoch [4/5] - Loss: 10.5000, Accuracy: 99.33%
+Epoch [5/5] - Loss: 7.8946, Accuracy: 99.45%
+Test Accuracy: 98.83%
+
+Process finished with exit code 0

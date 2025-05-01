@@ -1,9 +1,8 @@
 /.idea
 /venv
 /BindsNET
-src/data
-src/results/
 sablona/
 sources/
 NCA-main/__pycache__/
 NCA-main/logs/
+data
