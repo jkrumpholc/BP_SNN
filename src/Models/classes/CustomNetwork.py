@@ -1,5 +1,6 @@
 from typing import Iterable, Optional, Sequence, Union
 
+import torch
 from bindsnet.learning import PostPre
 from bindsnet.network import Network
 from bindsnet.network.nodes import LIFNodes, Input
@@ -11,13 +12,15 @@ class CustomNetwork(Network):
     def __init__(
         self,
         n_input: int = 784,
-        n_hidden: int = 400,
         n_output: int = 10,
         batch_size: int = 1,
         inh: float = 17.5,
         dt: float = 1.0,
         nu: Optional[Union[float, Sequence[float]]] = (1e-4, 1e-2),
         reduction: Optional[callable] = None,
+        kernel_size: Optional[int] = 5,
+        stride: Optional[int] = 1,
+        n_filters: Optional[int] = 12,
         wmin: Optional[float] = 0.0,
         wmax: Optional[float] = 1.0,
         input_shape: Optional[Iterable[int]] = (1, 28, 28),
@@ -26,11 +29,13 @@ class CustomNetwork(Network):
 
         self.n_input = n_input
         self.input_shape = input_shape
-        self.n_hidden = n_hidden
         self.n_output = n_output
         self.inh = inh
         self.dt = dt
         self.batch_size = batch_size
+        self.n_hidden_1 = (input_shape[1])-kernel_size // stride + 1
+        self.n_hidden_2 = (input_shape[2])-kernel_size // stride + 1
+        self.n_hidden = n_filters * self.n_hidden_1 * self.n_hidden_2
 
         input_layer = Input(
             n=self.n_input, shape=self.input_shape, traces=True, tc_trace=20.0, batch_size=batch_size
@@ -47,13 +52,14 @@ class CustomNetwork(Network):
         conv_conn = Conv2dConnection(
             source=input_layer,
             target=conv_layer,
-            kernel_size=5,
-            stride=1,
-            n_filters=12,
+            kernel_size=kernel_size,
+            stride=stride,
+            n_filters=n_filters,
             reduction=reduction,
             update_rule=PostPre,
             nu=nu,
-            wmin=wmin, wmax=wmax
+            wmin=wmin,
+            wmax=wmax
         )
         self.add_connection(connection=conv_conn, source='X', target='Conv')
 
@@ -68,9 +74,24 @@ class CustomNetwork(Network):
             source=conv_layer,
             target=fc_layer,
             update_rule=PostPre,
-            wmin=0.0,
-            wmax=1.0
+            wmin=wmin,
+            wmax=wmax,
+
         )
+
+        rec_w = -self.inh * (
+                torch.ones(self.n_hidden, self.n_hidden)
+                - torch.diag(torch.ones(self.n_hidden))
+        )
+
+        recurrent_connection = Connection(
+            source=fc_layer,
+            target=fc_layer,
+            w=rec_w,
+            wmin=-self.inh,
+            wmax=0,
+        )
+        self.add_connection(connection=recurrent_connection, source="FC", target="FC")
 
         self.add_connection(connection=fc_conn, source='Conv', target='FC')
 
@@ -85,7 +106,8 @@ class CustomNetwork(Network):
             source=fc_layer,
             target=output_layer,
             update_rule=PostPre,
-            wmin=0.0, wmax=1.0
+            wmin=wmin,
+            wmax=wmax,
         )
 
         self.add_connection(output_conn, source='FC', target='Y')

@@ -3,7 +3,7 @@ import torch
 from bindsnet.network import Network
 from bindsnet.network.monitors import Monitor
 from bindsnet.network.nodes import Input, LIFNodes
-from bindsnet.network.topology import Conv2dConnection
+from bindsnet.network.topology import Connection
 from bindsnet.learning import PostPre
 from bindsnet.datasets import MNIST
 from bindsnet.encoding import PoissonEncoder
@@ -23,8 +23,8 @@ input_shape = (1, 28, 28)
 conv_filters = 32
 conv_kernel = 5
 conv_stride = 1
-n_epochs = 1
-samples_per_epoch = 300
+n_epochs = 3
+samples_per_epoch = 20000
 
 # Build network
 network = Network(dt=1.0)
@@ -38,7 +38,7 @@ network.add_layer(input_layer, name='X')
 network.add_layer(conv_layer, name='Y')
 
 # Conv connection (STDP)
-conv_conn = Conv2dConnection(
+conn = Connection(
     source=input_layer,
     target=conv_layer,
     kernel_size=conv_kernel,
@@ -50,19 +50,25 @@ conv_conn = Conv2dConnection(
     norm=0.4 * conv_kernel ** 2
 )
 
-network.add_connection(conv_conn, source='X', target='Y')
+network.add_connection(conn, source='X', target='Y')
 
 # Dataset
 transform = transforms.ToTensor()
-dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
-test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
-train_dataset = MNIST(PoissonEncoder(time=time, dt=1), None, "./data/MNIST", train=True, download=True, transform=None)
+dataset = datasets.MNIST(root='../data', train=True, download=True, transform=transform)
+test_dataset = MNIST(PoissonEncoder(time=time, dt=1), None, "../data/", train=False, download=True, transform=None)
+train_dataset = MNIST(PoissonEncoder(time=time, dt=1), None, "../data/", train=True, download=True, transform=None)
 
 # Pipeline
-pipeline = EnvironmentPipeline(
+train_pipeline = EnvironmentPipeline(
     network=network,
     environment=train_dataset,
-    encoding=PoissonEncoder(time=time, dt=1),
+    encoding=PoissonEncoder(time=time, dt=1))
+
+
+test_pipeline = EnvironmentPipeline(
+    network=network,
+    environment=test_dataset,
+    encoding=PoissonEncoder(time=time, dt=1)
 )
 
 
@@ -70,9 +76,9 @@ def train():
     # Training
 
     # Create a dataloader for the training set
-    time = pipeline.time
-    layer = pipeline.network.layers['Y']
-    D, W, H = pipeline.network.layers['Y'].shape
+    time = train_pipeline.time
+    layer = train_pipeline.network.layers['Y']
+    D, W, H = train_pipeline.network.layers['Y'].shape
     n_neurons = H * W * D
     spike_record = torch.zeros(samples_per_epoch, time, n_neurons)
     labels = torch.zeros(samples_per_epoch, dtype=torch.long)
@@ -94,12 +100,12 @@ def train():
             reward = torch.tensor(0)  # Unused for STDP
 
             # Let pipeline handle encoding
-            pipeline.step(batch=(data, label, index, reward))
-            spikes = pipeline.network.layers['Y'].s.detach().cpu().view(time, -1)
+            train_pipeline.step(batch=(data, label, index, reward))
+            spikes = train_pipeline.network.layers['Y'].s.detach().cpu().view(time, -1)
             spike_record[i] = spikes
             labels[i] = label
 
-            if i % 50 == 0:
+            if i % 100 == 0:
                 print(f"[Epoch {epoch}] Sample {i}/{samples_per_epoch}")
     print("Training complete.")
 
@@ -110,49 +116,37 @@ def train():
 
 
 def all_activity(spikes, assignments, n_labels):
-    num_neurons = spikes.size(2) * spikes.size(3) * spikes.size(4)  # Get the number of neurons
-    rates = torch.zeros(n_labels).to(spikes.device)  # Store the firing rates for each label
-    spikes = spikes.view(spikes.size(0), -1)
-    # Ensure indices are within bounds
+    spikes = spikes.sum(0)  # Sum over time
+    votes = torch.zeros(n_labels, device=spikes.device)
     for i in range(n_labels):
-        indices = assignments == i  # Assign neurons based on their label
-
-        # Ensure indices are within valid range
-        indices = indices.nonzero().squeeze()
-
-        # Make sure we don't exceed the number of neurons
-        if indices.size(0) > num_neurons:
-            raise ValueError(f"Too many indices for label {i}, exceeds the number of neurons.")
-
-        # Calculate the firing rates for each label
-        rates[i] = torch.sum(spikes[:, indices], 1).float().mean()
-
-    return rates
+        votes[i] = spikes[assignments == i].sum()
+    return votes
 
 
 # Evaluation
-def evaluate(dataset, n_samples=100):
-    test_loader = DataLoader(dataset, batch_size=1, shuffle=True)
+def evaluate(assignments, n_samples=500):
+    # Disable learning during evaluation
+    for conn in network.connections.values():
+        conn.update_rule = None
+
     correct = 0
     total = 0
 
-    for i, (images, labels) in enumerate(test_loader):
+    test_loader = DataLoader(dataset, batch_size=1, shuffle=True)
+
+    print("Evaluating...")
+    for i, (images, labels_) in enumerate(test_loader):
         if i >= n_samples:
             break
 
-        # Move images and labels to the correct device (CUDA)
-        images = images.to(device)
-        labels = labels.to(device)
+        images = images.squeeze(0).to(device)
+        labels_ = labels_.to(device)
 
-        # Flatten the image
-        image_tensor = images.to(device)  # Flatten to [784]
-
-        # Encode input using PoissonEncoder
-        inputs = {'X': PoissonEncoder(time)(image_tensor).to(device)}
-        # Run network on GPU
+        # Encode and step
+        inputs = {'X': PoissonEncoder(time)(images).to(device)}
         network.run(inputs=inputs, time=time, device=device)
 
-        output_spikes = network.monitors['Y'].get('s')
+        output_spikes = spike_monitor.get('s')
         prediction = all_activity(
             spikes=output_spikes,
             assignments=assignments,
@@ -160,12 +154,16 @@ def evaluate(dataset, n_samples=100):
         )
 
         pred_label = torch.argmax(prediction).item()
-        if pred_label == labels.item():
+        if pred_label == labels_.item():
             correct += 1
         total += 1
         network.reset_state_variables()
+        spike_monitor.reset_state_variables()
+        if i % 100 == 0:
+            print(f"Sample {i}/{samples_per_epoch}")
 
-    print(f"Test accuracy: {correct / total:.2%}")
+    accuracy = correct / total
+    print(f"Test accuracy: {accuracy:.2%}")
 
 
 # Add spike monitor
@@ -173,10 +171,7 @@ def evaluate(dataset, n_samples=100):
 spike_monitor = Monitor(obj=conv_layer, state_vars=['s'], time=time)
 network.add_monitor(spike_monitor, name='Y')
 assignments, proportions, rates = train()
+network.learning = False
 # Run evaluation
 print("Evaluating on test set...")
-evaluate(test_dataset, n_samples=100)
-
-# Optional: Visualize spikes
-# plot_spikes({'Y': spike_monitor.get('s')})
-# plt.show()
+evaluate(dataset, n_samples=5000)

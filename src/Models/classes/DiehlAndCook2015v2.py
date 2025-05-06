@@ -7,11 +7,8 @@ from bindsnet.network import Network
 from bindsnet.network.nodes import DiehlAndCookNodes, Input
 from bindsnet.network.topology import Connection
 
-class DiehlAndCook2015v2(Network):
-    # language=rst
-    """
-    """
 
+class DiehlAndCook2015v2(Network):
     def __init__(
         self,
         n_inpt: int,

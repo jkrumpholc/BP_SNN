@@ -20,7 +20,7 @@ from bindsnet.analysis.plotting import (
 from bindsnet.datasets import MNIST, DataLoader
 from bindsnet.encoding import PoissonEncoder
 from bindsnet.evaluation import all_activity, assign_labels, proportion_weighting
-from bindsnet.models import DiehlAndCook2015
+from classes.DiehlAndCook2015 import DiehlAndCook2015
 from bindsnet.network.monitors import Monitor
 from bindsnet.utils import get_square_assignments, get_square_weights
 

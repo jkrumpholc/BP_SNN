@@ -10,10 +10,6 @@ from bindsnet.network.nodes import DiehlAndCookNodes, Input
 from bindsnet.network.topology import Connection
 
 class IncreasingInhibitionNetwork(Network):
-    # language=rst
-    """
-    """
-
     def __init__(
         self,
         n_input: int,

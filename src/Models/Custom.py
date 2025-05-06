@@ -44,7 +44,7 @@ parser.add_argument("--train", dest="train", action="store_true")
 parser.add_argument("--test", dest="train", action="store_false")
 parser.add_argument("--plot", dest="plot", action="store_true")
 parser.add_argument("--gpu", dest="gpu", action="store_true")
-parser.set_defaults(plot=True, gpu=True)
+parser.set_defaults(plot=False, gpu=True)
 
 args = parser.parse_args()
 
@@ -94,7 +94,6 @@ start_intensity = intensity
 # Build network.
 network = CustomNetwork(
     n_input=784,
-    n_hidden=n_hidden,
     n_output=n_output,
     batch_size=batch_size,
     inh=inh,
