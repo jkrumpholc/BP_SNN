@@ -58,7 +58,7 @@ network.add_connection(conv_conn, source='X', target='Y')
 transform = transforms.ToTensor()
 dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
 test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
-train_dataset = MNIST(PoissonEncoder(time=time, dt=1), None, "./data/MNIST", train=True, download=True, transform=None)
+train_dataset = MNIST(PoissonEncoder(time=time, dt=1), None, "./data", train=True, download=True, transform=None)
 
 # Pipeline
 pipeline = EnvironmentPipeline(

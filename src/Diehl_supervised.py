@@ -113,7 +113,7 @@ network.add_monitor(inh_voltage_monitor, name="inh_voltage")
 dataset = MNIST(
     PoissonEncoder(time=time, dt=dt),
     None,
-    root=os.path.join("..", "..", "data"),
+    root=os.path.join("..", "data"),
     download=True,
     train=True,
     transform=transforms.Compose(
@@ -258,7 +258,7 @@ dataset.train=False
 test_dataset = MNIST(
     PoissonEncoder(time=time, dt=dt),
     None,
-    root=os.path.join("..", "..", "data", "MNIST"),
+    root=os.path.join("..", "data"),
     download=True,
     train=False,
     transform=transforms.Compose(

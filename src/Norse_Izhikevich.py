@@ -28,7 +28,7 @@ transform = transforms.Compose([
     transforms.Lambda(lambda x: x.view(-1))  # flatten to (784,)
 ])
 
-train_dataset = datasets.MNIST(root='../../data', train=True, download=True, transform=transform)
+train_dataset = datasets.MNIST(root='../data', train=True, download=True, transform=transform)
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
 # --------------------------
