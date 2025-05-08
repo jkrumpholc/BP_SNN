@@ -160,7 +160,7 @@ def evaluate(assignments, n_samples=500):
         network.reset_state_variables()
         spike_monitor.reset_state_variables()
         if i % 100 == 0:
-            print(f"Sample {i}/{samples_per_epoch}")
+            print(f"Sample {i}/{n_samples}")
 
     accuracy = correct / total
     print(f"Test accuracy: {accuracy:.2%}")

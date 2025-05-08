@@ -1,0 +1,21 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe D:\Skola\BP_SNN\src\Models\Norse_Izhikevich.py
+Epoch 0, Batch 100, Loss: 4.4120, Accuracy: 9.90%
+Epoch 0, Batch 200, Loss: 3.1798, Accuracy: 8.46%
+Epoch 0, Batch 300, Loss: 1.7053, Accuracy: 9.63%
+Epoch 0, Batch 400, Loss: 2.5430, Accuracy: 9.73%
+Epoch 0, Batch 500, Loss: 1.8938, Accuracy: 10.18%
+Epoch 0, Batch 600, Loss: 1.6789, Accuracy: 10.65%
+Epoch 0, Batch 700, Loss: 2.3476, Accuracy: 10.84%
+Epoch 0, Batch 800, Loss: 1.7066, Accuracy: 11.36%
+Epoch 0, Batch 900, Loss: 2.2179, Accuracy: 11.10%
+Epoch 0, Batch 1000, Loss: 2.0449, Accuracy: 11.69%
+Epoch 0, Batch 1100, Loss: 2.3917, Accuracy: 11.90%
+Epoch 0, Batch 1200, Loss: 2.0622, Accuracy: 11.99%
+Epoch 0, Batch 1300, Loss: 2.3529, Accuracy: 11.99%
+Epoch 0, Batch 1400, Loss: 2.2572, Accuracy: 11.85%
+Epoch 0, Batch 1500, Loss: 1.9023, Accuracy: 11.73%
+Epoch 0, Batch 1600, Loss: 2.5894, Accuracy: 11.62%
+Epoch 0, Batch 1700, Loss: 3.0145, Accuracy: 11.70%
+Epoch 0, Batch 1800, Loss: 2.3256, Accuracy: 11.66%
+Epoch 0, Batch 1900, Loss: 3.0344, Accuracy: 11.57%
+Epoch 0, Batch 2000, Loss: 2.6684, Accuracy: 11.64%

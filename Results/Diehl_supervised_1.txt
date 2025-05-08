@@ -1,0 +1,51 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe D:\Skola\BP_SNN\BindsNET\examples\mnist\supervised_mnist.py
+Running on Device =  cuda
+  0%|          | 0/700 [00:00<?, ?it/s]Begin training.
+
+Train progress:  10%|█         | 70/700 [00:21<03:34,  2.94it/s]
+All activity accuracy: 14.29 (last), 14.29 (average), 14.29 (best)
+Proportion weighting accuracy: 14.29 (last), 14.29 (average), 14.29 (best)
+
+Train progress:  20%|██        | 140/700 [00:43<02:55,  3.18it/s]
+All activity accuracy: 51.43 (last), 32.86 (average), 51.43 (best)
+Proportion weighting accuracy: 51.43 (last), 32.86 (average), 51.43 (best)
+
+Train progress:  30%|███       | 210/700 [01:06<02:40,  3.06it/s]
+All activity accuracy: 77.14 (last), 47.62 (average), 77.14 (best)
+Proportion weighting accuracy: 72.86 (last), 46.19 (average), 72.86 (best)
+
+Train progress:  40%|████      | 280/700 [01:29<02:17,  3.06it/s]
+All activity accuracy: 94.29 (last), 59.29 (average), 94.29 (best)
+Proportion weighting accuracy: 92.86 (last), 57.86 (average), 92.86 (best)
+
+Train progress:  50%|█████     | 350/700 [01:52<01:56,  3.01it/s]
+All activity accuracy: 90.00 (last), 65.43 (average), 94.29 (best)
+Proportion weighting accuracy: 91.43 (last), 64.57 (average), 92.86 (best)
+
+Train progress:  60%|██████    | 420/700 [02:14<01:30,  3.08it/s]
+All activity accuracy: 97.14 (last), 70.71 (average), 97.14 (best)
+Proportion weighting accuracy: 97.14 (last), 70.00 (average), 97.14 (best)
+
+Train progress:  70%|███████   | 490/700 [02:38<01:08,  3.08it/s]
+All activity accuracy: 98.57 (last), 74.69 (average), 98.57 (best)
+Proportion weighting accuracy: 98.57 (last), 74.08 (average), 98.57 (best)
+
+Train progress:  80%|████████  | 560/700 [03:01<00:45,  3.08it/s]
+All activity accuracy: 100.00 (last), 77.86 (average), 100.00 (best)
+Proportion weighting accuracy: 100.00 (last), 77.32 (average), 100.00 (best)
+
+Train progress:  90%|█████████ | 630/700 [03:24<00:22,  3.05it/s]
+All activity accuracy: 100.00 (last), 80.32 (average), 100.00 (best)
+Proportion weighting accuracy: 100.00 (last), 79.84 (average), 100.00 (best)
+
+Train progress: 100%|██████████| 700/700 [03:48<00:00,  2.83it/s]
+All activity accuracy: 100.00 (last), 82.29 (average), 100.00 (best)
+Proportion weighting accuracy: 100.00 (last), 81.86 (average), 100.00 (best)
+
+Train progress: : 701it [03:48,  2.89it/s]      Progress: 700 / 700
+
+Train progress: : 701it [03:48,  2.89it/s]      Progress: 700 / 700
+
+Training complete.
+
+Process finished with exit code 0

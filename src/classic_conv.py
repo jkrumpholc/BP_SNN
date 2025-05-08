@@ -12,11 +12,11 @@ transform = transforms.Compose([
     transforms.Normalize((0.1307,), (0.3081,))  # standard MNIST normalization
 ])
 
-train_dataset = torchvision.datasets.MNIST(root="../../data/MNIST", train=True, download=True, transform=transform)
-test_dataset = torchvision.datasets.MNIST(root="../../data/MNIST", train=False, download=True, transform=transform)
+train_dataset = torchvision.datasets.MNIST(root="../../data/", train=True, download=True, transform=transform)
+test_dataset = torchvision.datasets.MNIST(root="../../data/", train=False, download=True, transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=1000, shuffle=False)
+test_loader = DataLoader(test_dataset, batch_size=128, shuffle=True)
 
 
 # ---------- 2. Define CNN Model ----------
@@ -47,14 +47,14 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # ---------- 4. Training Loop ----------
-num_epochs = 5
+num_epochs = 1
 for epoch in range(num_epochs):
     model.train()
     total_loss = 0
     correct = 0
     total = 0
 
-    for images, labels in train_loader:
+    for batch_id, (images, labels) in enumerate(train_loader):
         images, labels = images.to(device), labels.to(device)
 
         optimizer.zero_grad()
@@ -67,6 +67,11 @@ for epoch in range(num_epochs):
         _, predicted = outputs.max(1)
         correct += predicted.eq(labels).sum().item()
         total += labels.size(0)
+        if batch_id*train_loader.batch_size % 10000 < 120:
+            accuracy = 100 * correct / total
+            print(f"Epoch [{epoch + 1}/{num_epochs}] "
+                  f"Batch [{batch_id*train_loader.batch_size}/{len(train_loader)*128}] - "
+                  f"Loss: {total_loss:.4f}, Accuracy: {accuracy:.2f}%")
 
     accuracy = 100 * correct / total
     print(f"Epoch [{epoch + 1}/{num_epochs}] - Loss: {total_loss:.4f}, Accuracy: {accuracy:.2f}%")

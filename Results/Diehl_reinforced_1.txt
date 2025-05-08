@@ -1,0 +1,421 @@
+D:\Skola\BP_SNN\venv\Scripts\python.exe D:\Skola\BP_SNN\src\Models\Diehl_v2_reinforced.py
+Running on Device =  cuda
+
+Begin training...
+
+Progress: 0 / 1 (0.0000 seconds)
+  1%|          | 600/60000 [00:05<08:00, 123.69it/s]
+All activity accuracy: 11.67 (last), 11.67 (average), 11.67 (best)
+Proportion weighting accuracy: 11.67 (last), 11.67 (average), 11.67 (best)
+Reward: 2.0333
+  2%|▏         | 1200/60000 [00:10<08:15, 118.57it/s]
+All activity accuracy: 23.33 (last), 17.50 (average), 23.33 (best)
+Proportion weighting accuracy: 21.67 (last), 16.67 (average), 21.67 (best)
+Reward: 3.9333
+  3%|▎         | 1800/60000 [00:15<07:48, 124.33it/s]
+All activity accuracy: 30.00 (last), 21.67 (average), 30.00 (best)
+Proportion weighting accuracy: 28.33 (last), 20.56 (average), 28.33 (best)
+Reward: 4.0333
+  4%|▍         | 2400/60000 [00:20<07:50, 122.37it/s]
+All activity accuracy: 25.00 (last), 22.50 (average), 30.00 (best)
+Proportion weighting accuracy: 28.33 (last), 22.50 (average), 28.33 (best)
+Reward: 3.7333
+  5%|▌         | 3000/60000 [00:24<07:41, 123.50it/s]
+All activity accuracy: 38.33 (last), 25.67 (average), 38.33 (best)
+Proportion weighting accuracy: 41.67 (last), 26.33 (average), 41.67 (best)
+Reward: 4.8667
+  6%|▌         | 3600/60000 [00:29<07:29, 125.46it/s]
+All activity accuracy: 35.00 (last), 27.22 (average), 38.33 (best)
+Proportion weighting accuracy: 31.67 (last), 27.22 (average), 41.67 (best)
+Reward: 4.6333
+  7%|▋         | 4200/60000 [00:34<07:38, 121.62it/s]
+All activity accuracy: 35.00 (last), 28.33 (average), 38.33 (best)
+Proportion weighting accuracy: 36.67 (last), 28.57 (average), 41.67 (best)
+Reward: 4.2333
+  8%|▊         | 4800/60000 [00:39<07:44, 118.85it/s]
+All activity accuracy: 46.67 (last), 30.62 (average), 46.67 (best)
+Proportion weighting accuracy: 46.67 (last), 30.83 (average), 46.67 (best)
+Reward: 4.9000
+  9%|▉         | 5400/60000 [00:44<07:18, 124.60it/s]
+All activity accuracy: 46.67 (last), 32.41 (average), 46.67 (best)
+Proportion weighting accuracy: 45.00 (last), 32.41 (average), 46.67 (best)
+Reward: 5.1333
+ 10%|█         | 6000/60000 [00:49<07:20, 122.65it/s]
+All activity accuracy: 53.33 (last), 34.50 (average), 53.33 (best)
+Proportion weighting accuracy: 50.00 (last), 34.17 (average), 50.00 (best)
+Reward: 5.5333
+ 11%|█         | 6600/60000 [00:54<07:12, 123.56it/s]
+All activity accuracy: 45.00 (last), 35.45 (average), 53.33 (best)
+Proportion weighting accuracy: 48.33 (last), 35.45 (average), 50.00 (best)
+Reward: 4.9000
+ 12%|█▏        | 7200/60000 [00:59<07:14, 121.65it/s]
+All activity accuracy: 58.33 (last), 37.36 (average), 58.33 (best)
+Proportion weighting accuracy: 56.67 (last), 37.22 (average), 56.67 (best)
+Reward: 5.7000
+ 13%|█▎        | 7800/60000 [01:04<07:10, 121.30it/s]
+All activity accuracy: 51.67 (last), 38.46 (average), 58.33 (best)
+Proportion weighting accuracy: 55.00 (last), 38.59 (average), 56.67 (best)
+Reward: 5.3333
+ 14%|█▍        | 8400/60000 [01:09<07:36, 113.13it/s]
+All activity accuracy: 40.00 (last), 38.57 (average), 58.33 (best)
+Proportion weighting accuracy: 40.00 (last), 38.69 (average), 56.67 (best)
+Reward: 5.1000
+ 15%|█▌        | 9000/60000 [01:14<07:40, 110.68it/s]
+All activity accuracy: 43.33 (last), 38.89 (average), 58.33 (best)
+Proportion weighting accuracy: 45.00 (last), 39.11 (average), 56.67 (best)
+Reward: 5.0000
+ 16%|█▌        | 9600/60000 [01:19<06:56, 121.06it/s]
+All activity accuracy: 50.00 (last), 39.58 (average), 58.33 (best)
+Proportion weighting accuracy: 50.00 (last), 39.79 (average), 56.67 (best)
+Reward: 5.3000
+ 17%|█▋        | 10200/60000 [01:24<07:08, 116.12it/s]
+All activity accuracy: 43.33 (last), 39.80 (average), 58.33 (best)
+Proportion weighting accuracy: 45.00 (last), 40.10 (average), 56.67 (best)
+Reward: 5.2000
+ 18%|█▊        | 10800/60000 [01:30<07:22, 111.28it/s]
+All activity accuracy: 58.33 (last), 40.83 (average), 58.33 (best)
+Proportion weighting accuracy: 60.00 (last), 41.20 (average), 60.00 (best)
+Reward: 5.3333
+ 19%|█▉        | 11400/60000 [01:35<07:09, 113.15it/s]
+All activity accuracy: 60.00 (last), 41.84 (average), 60.00 (best)
+Proportion weighting accuracy: 61.67 (last), 42.28 (average), 61.67 (best)
+Reward: 5.6000
+ 20%|██        | 12000/60000 [01:40<06:57, 114.91it/s]
+All activity accuracy: 56.67 (last), 42.58 (average), 60.00 (best)
+Proportion weighting accuracy: 56.67 (last), 43.00 (average), 61.67 (best)
+Reward: 5.9000
+ 21%|██        | 12600/60000 [01:46<06:37, 119.10it/s]
+All activity accuracy: 60.00 (last), 43.41 (average), 60.00 (best)
+Proportion weighting accuracy: 61.67 (last), 43.89 (average), 61.67 (best)
+Reward: 6.3000
+ 22%|██▏       | 13200/60000 [01:51<08:12, 95.12it/s]
+All activity accuracy: 50.00 (last), 43.71 (average), 60.00 (best)
+Proportion weighting accuracy: 48.33 (last), 44.09 (average), 61.67 (best)
+Reward: 5.4000
+ 23%|██▎       | 13800/60000 [01:56<06:25, 119.86it/s]
+All activity accuracy: 51.67 (last), 44.06 (average), 60.00 (best)
+Proportion weighting accuracy: 51.67 (last), 44.42 (average), 61.67 (best)
+Reward: 5.3000
+ 24%|██▍       | 14400/60000 [02:01<06:29, 116.93it/s]
+All activity accuracy: 63.33 (last), 44.86 (average), 63.33 (best)
+Proportion weighting accuracy: 66.67 (last), 45.35 (average), 66.67 (best)
+Reward: 5.9667
+ 25%|██▌       | 15000/60000 [02:07<06:56, 107.93it/s]
+All activity accuracy: 40.00 (last), 44.67 (average), 63.33 (best)
+Proportion weighting accuracy: 45.00 (last), 45.33 (average), 66.67 (best)
+Reward: 5.0667
+ 26%|██▌       | 15600/60000 [02:12<06:14, 118.69it/s]
+All activity accuracy: 65.00 (last), 45.45 (average), 65.00 (best)
+Proportion weighting accuracy: 65.00 (last), 46.09 (average), 66.67 (best)
+Reward: 6.1000
+ 27%|██▋       | 16200/60000 [02:17<06:09, 118.44it/s]
+All activity accuracy: 55.00 (last), 45.80 (average), 65.00 (best)
+Proportion weighting accuracy: 55.00 (last), 46.42 (average), 66.67 (best)
+Reward: 5.5667
+ 28%|██▊       | 16800/60000 [02:22<05:50, 123.23it/s]
+All activity accuracy: 68.33 (last), 46.61 (average), 68.33 (best)
+Proportion weighting accuracy: 71.67 (last), 47.32 (average), 71.67 (best)
+Reward: 6.4000
+ 29%|██▉       | 17400/60000 [02:27<05:43, 123.93it/s]
+All activity accuracy: 45.00 (last), 46.55 (average), 68.33 (best)
+Proportion weighting accuracy: 43.33 (last), 47.18 (average), 71.67 (best)
+Reward: 5.0333
+ 30%|███       | 18000/60000 [02:32<05:42, 122.72it/s]
+All activity accuracy: 63.33 (last), 47.11 (average), 68.33 (best)
+Proportion weighting accuracy: 61.67 (last), 47.67 (average), 71.67 (best)
+Reward: 6.4000
+ 31%|███       | 18600/60000 [02:36<05:36, 123.05it/s]
+All activity accuracy: 56.67 (last), 47.42 (average), 68.33 (best)
+Proportion weighting accuracy: 58.33 (last), 48.01 (average), 71.67 (best)
+Reward: 5.6000
+ 32%|███▏      | 19200/60000 [02:42<05:56, 114.55it/s]
+All activity accuracy: 63.33 (last), 47.92 (average), 68.33 (best)
+Proportion weighting accuracy: 65.00 (last), 48.54 (average), 71.67 (best)
+Reward: 6.0667
+ 33%|███▎      | 19800/60000 [02:47<05:33, 120.51it/s]
+All activity accuracy: 53.33 (last), 48.08 (average), 68.33 (best)
+Proportion weighting accuracy: 53.33 (last), 48.69 (average), 71.67 (best)
+Reward: 5.6000
+ 34%|███▍      | 20400/60000 [02:52<05:25, 121.49it/s]
+All activity accuracy: 66.67 (last), 48.63 (average), 68.33 (best)
+Proportion weighting accuracy: 65.00 (last), 49.17 (average), 71.67 (best)
+Reward: 6.3667
+ 35%|███▌      | 21000/60000 [02:57<05:16, 123.03it/s]
+All activity accuracy: 68.33 (last), 49.19 (average), 68.33 (best)
+Proportion weighting accuracy: 70.00 (last), 49.76 (average), 71.67 (best)
+Reward: 6.3000
+ 36%|███▌      | 21600/60000 [03:02<05:07, 124.74it/s]
+All activity accuracy: 61.67 (last), 49.54 (average), 68.33 (best)
+Proportion weighting accuracy: 61.67 (last), 50.09 (average), 71.67 (best)
+Reward: 6.0667
+ 37%|███▋      | 22200/60000 [03:07<05:10, 121.64it/s]
+All activity accuracy: 55.00 (last), 49.68 (average), 68.33 (best)
+Proportion weighting accuracy: 56.67 (last), 50.27 (average), 71.67 (best)
+Reward: 5.4667
+ 38%|███▊      | 22800/60000 [03:12<04:59, 124.07it/s]
+All activity accuracy: 61.67 (last), 50.00 (average), 68.33 (best)
+Proportion weighting accuracy: 61.67 (last), 50.57 (average), 71.67 (best)
+Reward: 6.0000
+ 39%|███▉      | 23400/60000 [03:17<04:53, 124.69it/s]
+All activity accuracy: 61.67 (last), 50.30 (average), 68.33 (best)
+Proportion weighting accuracy: 60.00 (last), 50.81 (average), 71.67 (best)
+Reward: 5.7000
+ 40%|████      | 24000/60000 [03:22<04:50, 123.79it/s]
+All activity accuracy: 71.67 (last), 50.83 (average), 71.67 (best)
+Proportion weighting accuracy: 71.67 (last), 51.33 (average), 71.67 (best)
+Reward: 6.5000
+ 41%|████      | 24600/60000 [03:26<04:46, 123.59it/s]
+All activity accuracy: 63.33 (last), 51.14 (average), 71.67 (best)
+Proportion weighting accuracy: 65.00 (last), 51.67 (average), 71.67 (best)
+Reward: 6.1333
+ 42%|████▏     | 25200/60000 [03:31<04:37, 125.54it/s]
+All activity accuracy: 66.67 (last), 51.51 (average), 71.67 (best)
+Proportion weighting accuracy: 66.67 (last), 52.02 (average), 71.67 (best)
+Reward: 6.2333
+ 43%|████▎     | 25800/60000 [03:36<04:38, 122.86it/s]
+All activity accuracy: 71.67 (last), 51.98 (average), 71.67 (best)
+Proportion weighting accuracy: 70.00 (last), 52.44 (average), 71.67 (best)
+Reward: 6.4000
+ 44%|████▍     | 26400/60000 [03:41<04:29, 124.47it/s]
+All activity accuracy: 75.00 (last), 52.50 (average), 75.00 (best)
+Proportion weighting accuracy: 76.67 (last), 52.99 (average), 76.67 (best)
+Reward: 6.6333
+ 45%|████▌     | 27000/60000 [03:46<04:19, 126.93it/s]
+All activity accuracy: 61.67 (last), 52.70 (average), 75.00 (best)
+Proportion weighting accuracy: 65.00 (last), 53.26 (average), 76.67 (best)
+Reward: 6.2000
+ 46%|████▌     | 27600/60000 [03:50<04:19, 124.99it/s]
+All activity accuracy: 61.67 (last), 52.90 (average), 75.00 (best)
+Proportion weighting accuracy: 61.67 (last), 53.44 (average), 76.67 (best)
+Reward: 6.0333
+ 47%|████▋     | 28200/60000 [03:55<04:13, 125.51it/s]
+All activity accuracy: 61.67 (last), 53.09 (average), 75.00 (best)
+Proportion weighting accuracy: 65.00 (last), 53.69 (average), 76.67 (best)
+Reward: 6.2000
+ 48%|████▊     | 28800/60000 [04:00<04:19, 120.46it/s]
+All activity accuracy: 63.33 (last), 53.30 (average), 75.00 (best)
+Proportion weighting accuracy: 65.00 (last), 53.92 (average), 76.67 (best)
+Reward: 5.8333
+ 49%|████▉     | 29400/60000 [04:05<04:10, 121.93it/s]
+All activity accuracy: 63.33 (last), 53.50 (average), 75.00 (best)
+Proportion weighting accuracy: 63.33 (last), 54.12 (average), 76.67 (best)
+Reward: 6.1000
+ 50%|█████     | 30000/60000 [04:10<04:35, 108.71it/s]
+All activity accuracy: 61.67 (last), 53.67 (average), 75.00 (best)
+Proportion weighting accuracy: 63.33 (last), 54.30 (average), 76.67 (best)
+Reward: 6.4667
+ 51%|█████     | 30600/60000 [04:15<03:56, 124.29it/s]
+All activity accuracy: 71.67 (last), 54.02 (average), 75.00 (best)
+Proportion weighting accuracy: 73.33 (last), 54.67 (average), 76.67 (best)
+Reward: 6.6667
+ 52%|█████▏    | 31200/60000 [04:20<03:55, 122.50it/s]
+All activity accuracy: 61.67 (last), 54.17 (average), 75.00 (best)
+Proportion weighting accuracy: 61.67 (last), 54.81 (average), 76.67 (best)
+Reward: 6.3333
+ 53%|█████▎    | 31800/60000 [04:25<03:51, 121.82it/s]
+All activity accuracy: 71.67 (last), 54.50 (average), 75.00 (best)
+Proportion weighting accuracy: 73.33 (last), 55.16 (average), 76.67 (best)
+Reward: 6.2000
+ 54%|█████▍    | 32400/60000 [04:30<03:52, 118.89it/s]
+All activity accuracy: 71.67 (last), 54.81 (average), 75.00 (best)
+Proportion weighting accuracy: 71.67 (last), 55.46 (average), 76.67 (best)
+Reward: 6.4667
+ 55%|█████▌    | 33000/60000 [04:35<03:45, 119.73it/s]
+All activity accuracy: 65.00 (last), 55.00 (average), 75.00 (best)
+Proportion weighting accuracy: 65.00 (last), 55.64 (average), 76.67 (best)
+Reward: 6.4333
+ 56%|█████▌    | 33600/60000 [04:40<03:39, 120.00it/s]
+All activity accuracy: 70.00 (last), 55.27 (average), 75.00 (best)
+Proportion weighting accuracy: 70.00 (last), 55.89 (average), 76.67 (best)
+Reward: 6.3333
+ 57%|█████▋    | 34200/60000 [04:45<03:35, 119.45it/s]
+All activity accuracy: 73.33 (last), 55.58 (average), 75.00 (best)
+Proportion weighting accuracy: 75.00 (last), 56.23 (average), 76.67 (best)
+Reward: 6.5667
+ 58%|█████▊    | 34800/60000 [04:50<03:25, 122.74it/s]
+All activity accuracy: 55.00 (last), 55.57 (average), 75.00 (best)
+Proportion weighting accuracy: 55.00 (last), 56.21 (average), 76.67 (best)
+Reward: 5.4000
+ 59%|█████▉    | 35400/60000 [04:55<03:33, 115.49it/s]
+All activity accuracy: 71.67 (last), 55.85 (average), 75.00 (best)
+Proportion weighting accuracy: 71.67 (last), 56.47 (average), 76.67 (best)
+Reward: 6.3667
+ 60%|██████    | 36000/60000 [05:00<03:24, 117.13it/s]
+All activity accuracy: 60.00 (last), 55.92 (average), 75.00 (best)
+Proportion weighting accuracy: 61.67 (last), 56.56 (average), 76.67 (best)
+Reward: 5.7000
+ 61%|██████    | 36600/60000 [05:05<03:12, 121.82it/s]
+All activity accuracy: 63.33 (last), 56.04 (average), 75.00 (best)
+Proportion weighting accuracy: 65.00 (last), 56.69 (average), 76.67 (best)
+Reward: 6.1333
+ 62%|██████▏   | 37200/60000 [05:10<03:13, 117.99it/s]
+All activity accuracy: 70.00 (last), 56.26 (average), 75.00 (best)
+Proportion weighting accuracy: 70.00 (last), 56.91 (average), 76.67 (best)
+Reward: 6.3333
+ 63%|██████▎   | 37800/60000 [05:15<03:01, 122.29it/s]
+All activity accuracy: 73.33 (last), 56.53 (average), 75.00 (best)
+Proportion weighting accuracy: 73.33 (last), 57.17 (average), 76.67 (best)
+Reward: 6.7667
+ 64%|██████▍   | 38400/60000 [05:20<02:48, 127.91it/s]
+All activity accuracy: 66.67 (last), 56.69 (average), 75.00 (best)
+Proportion weighting accuracy: 66.67 (last), 57.32 (average), 76.67 (best)
+Reward: 6.4000
+ 65%|██████▌   | 39000/60000 [05:25<02:48, 124.43it/s]
+All activity accuracy: 61.67 (last), 56.77 (average), 75.00 (best)
+Proportion weighting accuracy: 61.67 (last), 57.38 (average), 76.67 (best)
+Reward: 6.0000
+ 66%|██████▌   | 39600/60000 [05:30<02:43, 124.98it/s]
+All activity accuracy: 66.67 (last), 56.92 (average), 75.00 (best)
+Proportion weighting accuracy: 66.67 (last), 57.53 (average), 76.67 (best)
+Reward: 6.3333
+ 67%|██████▋   | 40200/60000 [05:35<02:43, 120.90it/s]
+All activity accuracy: 70.00 (last), 57.11 (average), 75.00 (best)
+Proportion weighting accuracy: 70.00 (last), 57.71 (average), 76.67 (best)
+Reward: 6.5333
+ 68%|██████▊   | 40800/60000 [05:40<02:41, 118.88it/s]
+All activity accuracy: 65.00 (last), 57.23 (average), 75.00 (best)
+Proportion weighting accuracy: 66.67 (last), 57.84 (average), 76.67 (best)
+Reward: 6.4667
+ 69%|██████▉   | 41400/60000 [05:45<02:32, 122.01it/s]
+All activity accuracy: 68.33 (last), 57.39 (average), 75.00 (best)
+Proportion weighting accuracy: 68.33 (last), 58.00 (average), 76.67 (best)
+Reward: 6.5333
+ 70%|███████   | 42000/60000 [05:50<02:27, 122.24it/s]
+All activity accuracy: 70.00 (last), 57.57 (average), 75.00 (best)
+Proportion weighting accuracy: 70.00 (last), 58.17 (average), 76.67 (best)
+Reward: 6.5333
+ 71%|███████   | 42600/60000 [05:55<02:18, 125.29it/s]
+All activity accuracy: 70.00 (last), 57.75 (average), 75.00 (best)
+Proportion weighting accuracy: 70.00 (last), 58.33 (average), 76.67 (best)
+Reward: 6.5667
+ 72%|███████▏  | 43200/60000 [06:00<02:17, 121.92it/s]
+All activity accuracy: 58.33 (last), 57.75 (average), 75.00 (best)
+Proportion weighting accuracy: 56.67 (last), 58.31 (average), 76.67 (best)
+Reward: 5.6667
+ 73%|███████▎  | 43800/60000 [06:04<02:11, 123.05it/s]
+All activity accuracy: 75.00 (last), 57.99 (average), 75.00 (best)
+Proportion weighting accuracy: 75.00 (last), 58.54 (average), 76.67 (best)
+Reward: 6.6667
+ 74%|███████▍  | 44400/60000 [06:09<02:06, 123.20it/s]
+All activity accuracy: 76.67 (last), 58.24 (average), 76.67 (best)
+Proportion weighting accuracy: 76.67 (last), 58.78 (average), 76.67 (best)
+Reward: 6.6000
+ 75%|███████▌  | 45000/60000 [06:14<01:58, 126.47it/s]
+All activity accuracy: 71.67 (last), 58.42 (average), 76.67 (best)
+Proportion weighting accuracy: 71.67 (last), 58.96 (average), 76.67 (best)
+Reward: 6.5667
+ 76%|███████▌  | 45600/60000 [06:19<02:09, 111.01it/s]
+All activity accuracy: 66.67 (last), 58.53 (average), 76.67 (best)
+Proportion weighting accuracy: 66.67 (last), 59.06 (average), 76.67 (best)
+Reward: 6.3000
+ 77%|███████▋  | 46200/60000 [06:25<01:56, 117.98it/s]
+All activity accuracy: 71.67 (last), 58.70 (average), 76.67 (best)
+Proportion weighting accuracy: 71.67 (last), 59.22 (average), 76.67 (best)
+Reward: 6.3333
+ 78%|███████▊  | 46800/60000 [06:30<01:52, 117.51it/s]
+All activity accuracy: 70.00 (last), 58.85 (average), 76.67 (best)
+Proportion weighting accuracy: 70.00 (last), 59.36 (average), 76.67 (best)
+Reward: 6.2667
+ 79%|███████▉  | 47400/60000 [06:35<01:48, 115.67it/s]
+All activity accuracy: 75.00 (last), 59.05 (average), 76.67 (best)
+Proportion weighting accuracy: 75.00 (last), 59.56 (average), 76.67 (best)
+Reward: 6.3333
+ 80%|████████  | 48000/60000 [06:40<01:41, 118.66it/s]
+All activity accuracy: 68.33 (last), 59.17 (average), 76.67 (best)
+Proportion weighting accuracy: 68.33 (last), 59.67 (average), 76.67 (best)
+Reward: 6.6000
+ 81%|████████  | 48600/60000 [06:45<01:37, 117.13it/s]
+All activity accuracy: 73.33 (last), 59.34 (average), 76.67 (best)
+Proportion weighting accuracy: 73.33 (last), 59.84 (average), 76.67 (best)
+Reward: 6.6000
+ 82%|████████▏ | 49200/60000 [06:50<01:32, 116.53it/s]
+All activity accuracy: 68.33 (last), 59.45 (average), 76.67 (best)
+Proportion weighting accuracy: 68.33 (last), 59.94 (average), 76.67 (best)
+Reward: 6.6000
+ 83%|████████▎ | 49800/60000 [06:55<01:26, 117.46it/s]
+All activity accuracy: 68.33 (last), 59.56 (average), 76.67 (best)
+Proportion weighting accuracy: 68.33 (last), 60.04 (average), 76.67 (best)
+Reward: 6.5000
+ 84%|████████▍ | 50400/60000 [07:01<01:23, 115.51it/s]
+All activity accuracy: 71.67 (last), 59.70 (average), 76.67 (best)
+Proportion weighting accuracy: 71.67 (last), 60.18 (average), 76.67 (best)
+Reward: 6.0000
+ 85%|████████▌ | 51000/60000 [07:06<01:17, 115.57it/s]
+All activity accuracy: 58.33 (last), 59.69 (average), 76.67 (best)
+Proportion weighting accuracy: 58.33 (last), 60.16 (average), 76.67 (best)
+Reward: 5.7333
+ 86%|████████▌ | 51600/60000 [07:11<01:11, 116.89it/s]
+All activity accuracy: 73.33 (last), 59.84 (average), 76.67 (best)
+Proportion weighting accuracy: 73.33 (last), 60.31 (average), 76.67 (best)
+Reward: 6.8667
+ 87%|████████▋ | 52200/60000 [07:17<01:12, 106.98it/s]
+All activity accuracy: 75.00 (last), 60.02 (average), 76.67 (best)
+Proportion weighting accuracy: 76.67 (last), 60.50 (average), 76.67 (best)
+Reward: 6.9333
+ 88%|████████▊ | 52800/60000 [07:22<01:01, 117.78it/s]
+All activity accuracy: 75.00 (last), 60.19 (average), 76.67 (best)
+Proportion weighting accuracy: 75.00 (last), 60.66 (average), 76.67 (best)
+Reward: 6.6667
+ 89%|████████▉ | 53400/60000 [07:27<00:54, 121.59it/s]
+All activity accuracy: 71.67 (last), 60.32 (average), 76.67 (best)
+Proportion weighting accuracy: 71.67 (last), 60.79 (average), 76.67 (best)
+Reward: 6.6333
+ 90%|█████████ | 54000/60000 [07:32<00:52, 114.32it/s]
+All activity accuracy: 71.67 (last), 60.44 (average), 76.67 (best)
+Proportion weighting accuracy: 71.67 (last), 60.91 (average), 76.67 (best)
+Reward: 6.5000
+ 91%|█████████ | 54600/60000 [07:37<00:45, 118.74it/s]
+All activity accuracy: 78.33 (last), 60.64 (average), 78.33 (best)
+Proportion weighting accuracy: 78.33 (last), 61.10 (average), 78.33 (best)
+Reward: 6.8333
+ 92%|█████████▏| 55200/60000 [07:42<00:39, 120.56it/s]
+All activity accuracy: 70.00 (last), 60.74 (average), 78.33 (best)
+Proportion weighting accuracy: 71.67 (last), 61.21 (average), 78.33 (best)
+Reward: 6.3667
+ 93%|█████████▎| 55800/60000 [07:47<00:34, 122.33it/s]
+All activity accuracy: 81.67 (last), 60.97 (average), 81.67 (best)
+Proportion weighting accuracy: 81.67 (last), 61.43 (average), 81.67 (best)
+Reward: 7.1000
+ 94%|█████████▍| 56400/60000 [07:52<00:29, 123.33it/s]
+All activity accuracy: 75.00 (last), 61.12 (average), 81.67 (best)
+Proportion weighting accuracy: 75.00 (last), 61.58 (average), 81.67 (best)
+Reward: 6.8000
+ 95%|█████████▌| 57000/60000 [07:57<00:24, 121.81it/s]
+All activity accuracy: 61.67 (last), 61.12 (average), 81.67 (best)
+Proportion weighting accuracy: 61.67 (last), 61.58 (average), 81.67 (best)
+Reward: 5.9000
+ 96%|█████████▌| 57600/60000 [08:02<00:19, 124.60it/s]
+All activity accuracy: 80.00 (last), 61.32 (average), 81.67 (best)
+Proportion weighting accuracy: 80.00 (last), 61.77 (average), 81.67 (best)
+Reward: 6.9333
+ 97%|█████████▋| 58200/60000 [08:07<00:14, 122.25it/s]
+All activity accuracy: 75.00 (last), 61.46 (average), 81.67 (best)
+Proportion weighting accuracy: 73.33 (last), 61.89 (average), 81.67 (best)
+Reward: 6.6000
+ 98%|█████████▊| 58800/60000 [08:12<00:09, 123.70it/s]
+All activity accuracy: 71.67 (last), 61.56 (average), 81.67 (best)
+Proportion weighting accuracy: 71.67 (last), 61.99 (average), 81.67 (best)
+Reward: 6.5667
+ 99%|█████████▉| 59400/60000 [08:16<00:04, 126.20it/s]
+All activity accuracy: 73.33 (last), 61.68 (average), 81.67 (best)
+Proportion weighting accuracy: 73.33 (last), 62.10 (average), 81.67 (best)
+Reward: 6.5667
+100%|██████████| 60000/60000 [08:21<00:00, 119.55it/s]
+Test progress:   0%|          | 0/6000 [00:00<?, ?it/s]Progress: 1 / 1 (501.8666 seconds)
+
+Training complete.
+
+
+Begin testing...
+
+Test progress: : 6060it [00:40, 150.10it/s]
+
+All activity accuracy: 0.7137
+Proportion weighting accuracy: 0.7148
+
+Progress: 1 / 1 (40.3720 seconds)
+
+Testing complete.
+
+
+Process finished with exit code 0
