@@ -73,14 +73,15 @@ def train(
 
         if do_plot and batch_idx % plot_interval == 0:
             ts = np.arange(0, seq_length)
-            fig, axs = plt.subplots(4, 4, figsize=(15, 10), sharex=True, sharey=True)
+            fig, axs = plt.subplots(2, 5, figsize=(15, 10))
             axs = axs.reshape(-1)  # flatten
-            for nrn in range(10):
+            for nrn, ax in enumerate(axs):
                 one_trace = model.voltages.detach().cpu().numpy()[:, 0, nrn]
                 fig.sca(axs[nrn])
-                fig.plot(ts, one_trace)
-            fig.xlabel("Time [s]")
-            fig.ylabel("Membrane Potential")
+                ax.set_title(f"Voltage of neuron {nrn}")
+                plt.plot(ts, one_trace)
+            plt.xlabel("Time [s]")
+            plt.ylabel("Membrane Potential")
 
             writer.add_figure("Voltages/output", fig, step)
 
@@ -154,7 +155,7 @@ def main(args):
     kwargs = {"num_workers": 1, "pin_memory": True} if args.device == "cuda" else {}
     train_loader = torch.utils.data.DataLoader(
         torchvision.datasets.MNIST(
-            root=".",
+            root="../data",
             train=True,
             download=True,
             transform=torchvision.transforms.Compose(
@@ -170,7 +171,7 @@ def main(args):
     )
     test_loader = torch.utils.data.DataLoader(
         torchvision.datasets.MNIST(
-            root=".",
+            root="../data",
             train=False,
             transform=torchvision.transforms.Compose(
                 [
@@ -272,11 +273,11 @@ if __name__ == "__main__":
         "--device",
         type=str,
         choices=["cpu", "cuda"],
-        default="cpu",
+        default="cuda",
         help="Device to use by pytorch.",
     )
     parser.add_argument(
-        "--epochs", type=int, default=10, help="Number of training episodes to do."
+        "--epochs", type=int, default=3, help="Number of training episodes to do."
     )
     parser.add_argument(
         "--seq-length", type=int, default=200, help="Number of timesteps to do."
@@ -323,7 +324,7 @@ if __name__ == "__main__":
         "--save-model", type=bool, default=True, help="Save the model after training."
     )
     parser.add_argument(
-        "--do-plot", type=bool, default=False, help="Do intermediate plots"
+        "--do-plot", type=bool, default=True, help="Do intermediate plots"
     )
     parser.add_argument(
         "--random-seed", type=int, default=1234, help="Random seed to use"

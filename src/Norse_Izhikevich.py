@@ -35,7 +35,7 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 # 5. Training Loop
 # --------------------------
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = IzhikevichSNN(batch_size=batch_size).to(device)
+model = IzhikevichSNN().to(device)
 optimizer = optim.Adam(model.parameters(), lr=1e-3)
 criterion = nn.CrossEntropyLoss()
 

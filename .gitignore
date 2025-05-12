@@ -7,3 +7,4 @@ NCA-main/__pycache__/
 NCA-main/logs/
 data
 MNIST
+*.npy

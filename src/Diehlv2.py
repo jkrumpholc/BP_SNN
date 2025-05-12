@@ -44,7 +44,7 @@ parser.add_argument("--train", dest="train", action="store_true")
 parser.add_argument("--test", dest="train", action="store_false")
 parser.add_argument("--plot", dest="plot", action="store_true")
 parser.add_argument("--gpu", dest="gpu", action="store_true")
-parser.set_defaults(plot=True, gpu=True)
+parser.set_defaults(plot=False, gpu=True)
 
 args = parser.parse_args()
 
@@ -63,7 +63,7 @@ dt = args.dt
 intensity = args.intensity
 progress_interval = args.progress_interval
 train = args.train
-plot = False #args.plot
+plot = args.plot
 gpu = args.gpu
 
 update_steps = int(n_train / batch_size / n_updates)
@@ -266,7 +266,7 @@ for epoch in range(n_epochs):
             image = batch["image"][:, 0].view(28, 28)
             inpt = inputs["X"][:, 0].view(time, 784).sum(0).view(28, 28)
             lable = batch["label"][0]
-            input_exc_weights = network.connections[("X", "Ae")].w
+            input_exc_weights = network.connections[("X", "Y")].w
             square_weights = get_square_weights(
                 input_exc_weights.view(784, n_neurons), n_sqrt, 28
             )

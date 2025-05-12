@@ -3,8 +3,8 @@ import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
+from classes.Mnist_CNN import MNISTCNN
 
 # ---------- 1. Data Loading ----------
 transform = transforms.Compose([
@@ -19,34 +19,13 @@ train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=128, shuffle=True)
 
 
-# ---------- 2. Define CNN Model ----------
-class MNISTCNN(nn.Module):
-    def __init__(self):
-        super(MNISTCNN, self).__init__()
-        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1)
-        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.dropout = nn.Dropout(0.25)
-        self.fc1 = nn.Linear(64 * 14 * 14, 128)
-        self.fc2 = nn.Linear(128, 10)
-
-    def forward(self, x):
-        x = F.relu(self.conv1(x))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = self.dropout(x)
-        x = x.view(x.size(0), -1)
-        x = F.relu(self.fc1(x))
-        return self.fc2(x)
-
-
-# ---------- 3. Training Setup ----------
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = MNISTCNN().to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# ---------- 4. Training Loop ----------
+
 num_epochs = 1
 for epoch in range(num_epochs):
     model.train()
@@ -76,7 +55,6 @@ for epoch in range(num_epochs):
     accuracy = 100 * correct / total
     print(f"Epoch [{epoch + 1}/{num_epochs}] - Loss: {total_loss:.4f}, Accuracy: {accuracy:.2f}%")
 
-# ---------- 5. Evaluation ----------
 model.eval()
 correct = 0
 total = 0

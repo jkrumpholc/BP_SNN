@@ -18,6 +18,7 @@ class LIFConvNet(torch.nn.Module):
         self.rsnn = ConvNet4(method=model)
         self.seq_length = seq_length
         self.input_scale = input_scale
+        self.voltages = 0
 
     def forward(self, x):
         batch_size = x.shape[0]
@@ -25,7 +26,7 @@ class LIFConvNet(torch.nn.Module):
             x.view(-1, self.input_features) * self.input_scale
         )
         x = x.reshape(self.seq_length, batch_size, 1, 28, 28)
-        voltages = self.rsnn(x)
-        m, _ = torch.max(voltages, 0)
+        self.voltages = self.rsnn(x)
+        m, _ = torch.max(self.voltages, 0)
         log_p_y = torch.nn.functional.log_softmax(m, dim=1)
         return log_p_y
